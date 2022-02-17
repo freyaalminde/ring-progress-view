@@ -107,8 +107,6 @@ internal final class GradientGenerator {
             return image
         }
         
-        print(#function)
-        
         let bitsPerComponent: Int = MemoryLayout<UInt8>.size * 8
         let bytesPerPixel: Int = bitsPerComponent * 4 / 8
         

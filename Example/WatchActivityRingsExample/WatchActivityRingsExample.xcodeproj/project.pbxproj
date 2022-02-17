@@ -65,8 +65,8 @@
 		3B138C7A27BEA73700D2B1B6 /* WatchActivityRingsExample WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchActivityRingsExample WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B138C7F27BEA73900D2B1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B138C8527BEA73900D2B1B6 /* WatchActivityRingsExample WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchActivityRingsExample WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B138C8A27BEA73900D2B1B6 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
-		3B138C8C27BEA73900D2B1B6 /* WatchActivityRingsExampleApp.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = WatchActivityRingsExampleApp.swift; sourceTree = "<group>"; tabWidth = 4; };
+		3B138C8A27BEA73900D2B1B6 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 2; };
+		3B138C8C27BEA73900D2B1B6 /* WatchActivityRingsExampleApp.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = WatchActivityRingsExampleApp.swift; sourceTree = "<group>"; tabWidth = 2; };
 		3B138C8E27BEA73900D2B1B6 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		3B138C9027BEA73B00D2B1B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B138C9327BEA73B00D2B1B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };

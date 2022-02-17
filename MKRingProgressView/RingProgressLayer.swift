@@ -24,21 +24,21 @@
 
 import UIKit
 
-#if os(watchOS)
-
-// TODO: consider instead making a generic `Layer` with a typealias to CALayer on iOS
-
-open class CALayer: NSObject {
+open class Layer: NSObject {
   override init() {}
   var bounds = CGRect.zero
   var needsDisplay = false
   func setNeedsDisplay() {}
 }
 
-#endif
+@objc(MKRingProgressViewStyle)
+public enum RingProgressViewStyle: Int {
+  case round
+  case square
+}
 
 @objc(MKRingProgressLayer)
-open class RingProgressLayer: CALayer {
+open class RingProgressLayer: Layer {
     /// The progress ring start color.
     @objc open var startColor: CGColor = UIColor.red.cgColor {
         didSet {
@@ -108,73 +108,61 @@ open class RingProgressLayer: CALayer {
     internal var disableProgressAnimation: Bool = false
     
     private let gradientGenerator = GradientGenerator()
-    
-#if os(watchOS)
-  
-    func presentation() -> Self? { self }
 
     /// The current progress shown by the view.
     /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
     public var progress: CGFloat = 0.5
 
-#else
-  
-    /// The current progress shown by the view.
-    /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
-    @NSManaged public var progress: CGFloat
-
-    open override class func needsDisplay(forKey key: String) -> Bool {
-        if key == "progress" {
-            return true
-        }
-        return super.needsDisplay(forKey: key)
-    }
-    
-    open override func action(forKey event: String) -> CAAction? {
-        if !disableProgressAnimation, event == "progress" {
-            if let action = super.action(forKey: "opacity") as? CABasicAnimation {
-                let animation = action.copy() as! CABasicAnimation
-                animation.keyPath = event
-                animation.fromValue = (presentation() ?? model()).value(forKey: event)
-                animation.toValue = nil
-                return animation
-            } else {
-                let animation = CABasicAnimation(keyPath: event)
-                animation.duration = 0.001
-                return animation
-            }
-        }
-        return super.action(forKey: event)
-    }
-    
-    open override func display() {
-        contents = contentImage()
-    }
-    
-    func contentImage() -> CGImage? {
-        let size = bounds.size
-        guard size.width > 0, size.height > 0 else {
-            return nil
-        }
-        if #available(iOS 10.0, tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat.default()
-            let image = UIGraphicsImageRenderer(size: size, format: format).image { ctx in
-                drawContent(in: ctx.cgContext)
-            }
-            return image.cgImage
-        } else {
-            UIGraphicsBeginImageContextWithOptions(size, false, 0)
-            guard let ctx = UIGraphicsGetCurrentContext() else {
-                return nil
-            }
-            drawContent(in: ctx)
-            let image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
-            UIGraphicsEndImageContext()
-            return image
-        }
-    }
-
-#endif
+//    open override class func needsDisplay(forKey key: String) -> Bool {
+//        if key == "progress" {
+//            return true
+//        }
+//        return super.needsDisplay(forKey: key)
+//    }
+//
+//    open override func action(forKey event: String) -> CAAction? {
+//        if !disableProgressAnimation, event == "progress" {
+//            if let action = super.action(forKey: "opacity") as? CABasicAnimation {
+//                let animation = action.copy() as! CABasicAnimation
+//                animation.keyPath = event
+//                animation.fromValue = (presentation() ?? model()).value(forKey: event)
+//                animation.toValue = nil
+//                return animation
+//            } else {
+//                let animation = CABasicAnimation(keyPath: event)
+//                animation.duration = 0.001
+//                return animation
+//            }
+//        }
+//        return super.action(forKey: event)
+//    }
+//
+//    open override func display() {
+//        contents = contentImage()
+//    }
+//
+//    func contentImage() -> CGImage? {
+//        let size = bounds.size
+//        guard size.width > 0, size.height > 0 else {
+//            return nil
+//        }
+//        if #available(iOS 10.0, tvOS 10.0, *) {
+//            let format = UIGraphicsImageRendererFormat.default()
+//            let image = UIGraphicsImageRenderer(size: size, format: format).image { ctx in
+//                drawContent(in: ctx.cgContext)
+//            }
+//            return image.cgImage
+//        } else {
+//            UIGraphicsBeginImageContextWithOptions(size, false, 0)
+//            guard let ctx = UIGraphicsGetCurrentContext() else {
+//                return nil
+//            }
+//            drawContent(in: ctx)
+//            let image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+//            UIGraphicsEndImageContext()
+//            return image
+//        }
+//    }
 
     internal func drawContent(in context: CGContext) {
         context.setShouldAntialias(allowsAntialiasing)
@@ -194,7 +182,8 @@ open class RingProgressLayer: CALayer {
         let w = min(ringWidth, squareSize / 2)
         let r = min(bounds.width, bounds.height) / 2 - w / 2
         let c = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let p = max(0.0, disableProgressAnimation ? progress : presentation()?.progress ?? 0.0)
+//        let p = max(0.0, disableProgressAnimation ? progress : presentation()?.progress ?? 0.0)
+        let p = max(0.0, progress)
         let angleOffset = CGFloat.pi / 2
         let angle = 2 * .pi * p - angleOffset
         let minAngle = 1.1 * atan(0.5 * w / r)
