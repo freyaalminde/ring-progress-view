@@ -24,6 +24,17 @@
 
 import UIKit
 
+#if os(watchOS)
+
+open class CALayer: NSObject {
+  override init() {}
+  var bounds = CGRect.zero
+  var needsDisplay = false
+  func setNeedsDisplay() {}
+}
+
+#endif
+
 @objc(MKRingProgressLayer)
 open class RingProgressLayer: CALayer {
     /// The progress ring start color.
@@ -91,15 +102,25 @@ open class RingProgressLayer: CALayer {
         }
     }
     
-    /// The current progress shown by the view.
-    /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
-    @NSManaged public var progress: CGFloat
-    
     /// Disable actions for `progress` property.
     internal var disableProgressAnimation: Bool = false
     
     private let gradientGenerator = GradientGenerator()
     
+#if os(watchOS)
+  
+    func presentation() -> Self? { self }
+
+    /// The current progress shown by the view.
+    /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
+    public var progress: CGFloat = 0.5
+
+#else
+  
+    /// The current progress shown by the view.
+    /// Values less than 0.0 are clamped. Values greater than 1.0 present multiple revolutions of the progress ring.
+    @NSManaged public var progress: CGFloat
+
     open override class func needsDisplay(forKey key: String) -> Bool {
         if key == "progress" {
             return true
@@ -150,8 +171,10 @@ open class RingProgressLayer: CALayer {
             return image
         }
     }
-    
-    private func drawContent(in context: CGContext) {
+
+#endif
+
+    internal func drawContent(in context: CGContext) {
         context.setShouldAntialias(allowsAntialiasing)
         context.setAllowsAntialiasing(allowsAntialiasing)
         

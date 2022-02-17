@@ -30,6 +30,8 @@ public enum RingProgressViewStyle: Int {
     case square
 }
 
+#if !os(watchOS)
+
 @IBDesignable
 @objc(MKRingProgressView)
 open class RingProgressView: UIView {
@@ -195,3 +197,5 @@ open class RingProgressView: UIView {
         }
     }
 }
+
+#endif

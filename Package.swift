@@ -3,12 +3,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "MKRingProgressView",
-    platforms: [.iOS(.v10), .tvOS(.v10)],
+    name: "ring-progress-view",
+    platforms: [.iOS(.v10), .tvOS(.v10), .watchOS(.v8)],
     products: [
-        .library(name: "MKRingProgressView", targets: ["MKRingProgressView"])
+        .library(name: "RingProgressView", targets: ["RingProgressView"])
     ],
     targets: [
-        .target(name: "MKRingProgressView", path: "MKRingProgressView")
+        .target(name: "RingProgressView", path: "MKRingProgressView", exclude: ["Info.plist"])
     ]
 )

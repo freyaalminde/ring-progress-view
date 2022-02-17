@@ -22,10 +22,21 @@
  THE SOFTWARE.
  */
 
+#if os(macOS)
+import AppKit
+let screenScale = NSScreen.main?.backingScaleFactor ?? 1
+#elseif os(watchOS)
+import WatchKit
+let screenScale = WKInterfaceDevice.current().screenScale
+#else
 import UIKit
+let screenScale = UIScreen.main.scale
+#endif
 
 internal final class GradientGenerator {
-    var scale: CGFloat = UIScreen.main.scale {
+    static var cache = NSCache<NSString, CGImage>()
+
+    var scale: CGFloat = screenScale {
         didSet {
             if scale != oldValue {
                 reset()
@@ -90,6 +101,13 @@ internal final class GradientGenerator {
         guard w > 0, h > 0 else {
             return nil
         }
+      
+        let key = "\(scale)\(size)\(colors)\(locations)\(startPoint)\(endPoint)" as NSString
+        if let image = Self.cache.object(forKey: key) {
+            return image
+        }
+        
+        print(#function)
         
         let bitsPerComponent: Int = MemoryLayout<UInt8>.size * 8
         let bytesPerPixel: Int = bitsPerComponent * 4 / 8
@@ -133,6 +151,9 @@ internal final class GradientGenerator {
         }
         
         generatedImage = image
+        if let image = image {
+            Self.cache.setObject(image, forKey: key)
+        }
         return image
     }
     
