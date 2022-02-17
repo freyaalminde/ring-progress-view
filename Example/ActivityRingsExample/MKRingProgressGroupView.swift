@@ -27,9 +27,9 @@ import UIKit
 
 @IBDesignable
 class RingProgressGroupView: UIView {
-    let ring1 = RingProgressView()
-    let ring2 = RingProgressView()
-    let ring3 = RingProgressView()
+    let ring1 = CocoaRingProgressView()
+    let ring2 = CocoaRingProgressView()
+    let ring3 = CocoaRingProgressView()
     
     @IBInspectable var ring1StartColor: UIColor = .red {
         didSet {

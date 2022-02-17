@@ -1,5 +1,3 @@
-#if os(watchOS)
-
 import SwiftUI
 
 public struct RingProgressGroupView: View {
@@ -65,10 +63,8 @@ extension RingProgressView: Animatable {
     }
 }
 
-struct RingProgressView_Previews: PreviewProvider {
+struct RingProgressView2_Previews: PreviewProvider {
     static var previews: some View {
         RingProgressView(value: 0.5)
     }
 }
-
-#endif

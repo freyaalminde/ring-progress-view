@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5022C19A20B872EA0068B650 /* MKRingProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022C19920B872EA0068B650 /* MKRingProgressLayer.swift */; };
+		3B138CA927BEBA8C00D2B1B6 /* RingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B138CA827BEBA8C00D2B1B6 /* RingProgressView.swift */; };
+		5022C19A20B872EA0068B650 /* RingProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022C19920B872EA0068B650 /* RingProgressLayer.swift */; };
 		508526731E52FDC000D611F4 /* MKRingProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 508526711E52FDC000D611F4 /* MKRingProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5085267B1E52FE7800D611F4 /* MKGradientGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508526791E52FE7800D611F4 /* MKGradientGenerator.swift */; };
-		5085267C1E52FE7800D611F4 /* MKRingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085267A1E52FE7800D611F4 /* MKRingProgressView.swift */; };
+		5085267B1E52FE7800D611F4 /* GradientGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508526791E52FE7800D611F4 /* GradientGenerator.swift */; };
+		5085267C1E52FE7800D611F4 /* CocoaRingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085267A1E52FE7800D611F4 /* CocoaRingProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5022C19920B872EA0068B650 /* MKRingProgressLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRingProgressLayer.swift; sourceTree = "<group>"; };
+		3B138CA827BEBA8C00D2B1B6 /* RingProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingProgressView.swift; sourceTree = "<group>"; };
+		5022C19920B872EA0068B650 /* RingProgressLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingProgressLayer.swift; sourceTree = "<group>"; };
 		5085266E1E52FDC000D611F4 /* MKRingProgressView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MKRingProgressView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		508526711E52FDC000D611F4 /* MKRingProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKRingProgressView.h; sourceTree = "<group>"; };
 		508526721E52FDC000D611F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		508526791E52FE7800D611F4 /* MKGradientGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGradientGenerator.swift; sourceTree = "<group>"; };
-		5085267A1E52FE7800D611F4 /* MKRingProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKRingProgressView.swift; sourceTree = "<group>"; };
+		508526791E52FE7800D611F4 /* GradientGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientGenerator.swift; sourceTree = "<group>"; };
+		5085267A1E52FE7800D611F4 /* CocoaRingProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaRingProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +55,10 @@
 			isa = PBXGroup;
 			children = (
 				508526711E52FDC000D611F4 /* MKRingProgressView.h */,
-				508526791E52FE7800D611F4 /* MKGradientGenerator.swift */,
-				5022C19920B872EA0068B650 /* MKRingProgressLayer.swift */,
-				5085267A1E52FE7800D611F4 /* MKRingProgressView.swift */,
+				5085267A1E52FE7800D611F4 /* CocoaRingProgressView.swift */,
+				508526791E52FE7800D611F4 /* GradientGenerator.swift */,
+				5022C19920B872EA0068B650 /* RingProgressLayer.swift */,
+				3B138CA827BEBA8C00D2B1B6 /* RingProgressView.swift */,
 				508526721E52FDC000D611F4 /* Info.plist */,
 			);
 			path = MKRingProgressView;
@@ -142,9 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5085267B1E52FE7800D611F4 /* MKGradientGenerator.swift in Sources */,
-				5022C19A20B872EA0068B650 /* MKRingProgressLayer.swift in Sources */,
-				5085267C1E52FE7800D611F4 /* MKRingProgressView.swift in Sources */,
+				5085267B1E52FE7800D611F4 /* GradientGenerator.swift in Sources */,
+				5022C19A20B872EA0068B650 /* RingProgressLayer.swift in Sources */,
+				3B138CA927BEBA8C00D2B1B6 /* RingProgressView.swift in Sources */,
+				5085267C1E52FE7800D611F4 /* CocoaRingProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MKRingProgressView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxkonovalov.MKRingProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +311,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MKRingProgressView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxkonovalov.MKRingProgressView;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -34,7 +34,7 @@ public enum RingProgressViewStyle: Int {
 
 @IBDesignable
 @objc(MKRingProgressView)
-open class RingProgressView: UIView {
+open class CocoaRingProgressView: UIView {
     /// The start color of the progress ring.
     @IBInspectable open var startColor: UIColor = .red {
         didSet {

@@ -26,6 +26,8 @@ import UIKit
 
 #if os(watchOS)
 
+// TODO: consider instead making a generic `Layer` with a typealias to CALayer on iOS
+
 open class CALayer: NSObject {
   override init() {}
   var bounds = CGRect.zero

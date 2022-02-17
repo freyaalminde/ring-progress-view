@@ -16,7 +16,7 @@ func generateAppIcon(scale: CGFloat = 1.0) -> UIImage {
     let icon = UIView(frame: rect)
     icon.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
-    let ring = RingProgressView(frame: icon.bounds.insetBy(dx: 66, dy: 66))
+    let ring = CocoaRingProgressView(frame: icon.bounds.insetBy(dx: 66, dy: 66))
     ring.ringWidth = 93
     ring.startColor = #colorLiteral(red: 1, green: 0.07450980392, blue: 0.3254901961, alpha: 1)
     ring.endColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)

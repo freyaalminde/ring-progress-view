@@ -10,7 +10,7 @@ import MKRingProgressView
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var ringProgressView: RingProgressView!
+    @IBOutlet var ringProgressView: CocoaRingProgressView!
     @IBOutlet var valueLabel: UILabel!
     
     override func viewDidLayoutSubviews() {
