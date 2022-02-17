@@ -1,10 +1,10 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "MKRingProgressView",
-    platforms: [.iOS(.v9), .tvOS(.v9)],
+    platforms: [.iOS(.v10), .tvOS(.v10)],
     products: [
         .library(name: "MKRingProgressView", targets: ["MKRingProgressView"])
     ],
