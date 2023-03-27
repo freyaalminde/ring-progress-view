@@ -25,10 +25,10 @@
 import UIKit
 
 open class Layer: NSObject {
-  override init() {}
-  var bounds = CGRect.zero
-  var needsDisplay = false
-  func setNeedsDisplay() {}
+  public override init() {}
+  public var bounds = CGRect.zero
+  public var needsDisplay = false
+  public func setNeedsDisplay() {}
 }
 
 @objc(MKRingProgressViewStyle)
@@ -164,7 +164,7 @@ open class RingProgressLayer: Layer {
 //        }
 //    }
 
-    internal func drawContent(in context: CGContext) {
+    open func drawContent(in context: CGContext) {
         context.setShouldAntialias(allowsAntialiasing)
         context.setAllowsAntialiasing(allowsAntialiasing)
         
